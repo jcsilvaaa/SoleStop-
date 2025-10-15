@@ -1,7 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#212121"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="24dp"/>
+
+        <EditText
+            android:id="@+id/nameInput"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/emailInput"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/passwordInput"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/addressInput"
+            android:hint="Shipping Address"
+            android:inputType="textPostalAddress"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:text="Register"
+            android:textColor="#FF5722"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"/>
+    </LinearLayout>
+</ScrollView>

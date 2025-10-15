@@ -1,7 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#212121"
+    android:padding="16dp">
 
-</LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="24dp"/>
+
+        <EditText
+            android:id="@+id/nameProfileInput"
+            android:hint="Full Name"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/emailProfileInput"
+            android:hint="Email"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/addressProfileInput"
+            android:hint="Shipping Address"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/input_background"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/saveProfileBtn"
+            android:text="Save Changes"
+            android:textColor="#FF5722"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

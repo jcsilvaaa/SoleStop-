@@ -1,7 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="220dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sneakers_placeholder"/>
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_below="@id/productImage"
+            android:text="Sneakers A"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_below="@id/productName"
+            android:text="$50"
+            android:textColor="#FF5722"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
