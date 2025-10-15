@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="brand_red">#D32F2F</color>      <!-- Primary Red -->
+    <color name="brand_white">#FFFFFF</color>    <!-- Clean White -->
+    <color name="brand_black">#000000</color>    <!-- Solid Black -->
+
+    <!-- Optional complementary colors -->
+    <color name="brand_gray_light">#F5F5F5</color>   <!-- Light gray background -->
+    <color name="brand_gray_dark">#212121</color>    <!-- Dark text -->
+    <color name="brand_red_dark">#B71C1C</color>     <!-- Darker red for accent -->
 </resources>

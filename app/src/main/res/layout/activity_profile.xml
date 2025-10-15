@@ -1,57 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#212121"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:src="@drawable/logo"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:contentDescription="Profile Logo"
             android:layout_marginBottom="24dp"/>
 
         <EditText
             android:id="@+id/nameProfileInput"
-            android:hint="Full Name"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/input_background"
-            android:padding="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"/>
 
         <EditText
             android:id="@+id/emailProfileInput"
-            android:hint="Email"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/input_background"
-            android:padding="12dp"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"/>
 
         <EditText
             android:id="@+id/addressProfileInput"
-            android:hint="Shipping Address"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/input_background"
-            android:padding="12dp"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Shipping Address"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="24dp"/>
 
         <Button
             android:id="@+id/saveProfileBtn"
-            android:text="Save Changes"
-            android:textColor="#FF5722"
-            android:backgroundTint="#FFFFFF"
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Save Profile"
+            android:backgroundTint="@color/purple_700"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 </ScrollView>

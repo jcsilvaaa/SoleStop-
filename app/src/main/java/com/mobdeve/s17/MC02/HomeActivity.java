@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.productRecyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
+        // Add sample products
         productList = new ArrayList<>();
         productList.add(new Product("Sneakers A", "$50", R.drawable.sneakers_a));
         productList.add(new Product("Sneakers B", "$70", R.drawable.sneakers_b));
@@ -44,17 +45,18 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         bottomNav = findViewById(R.id.bottomNav);
+
+        // Fixed listener using if-else
         bottomNav.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.nav_profile:
-                    startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
-                    break;
-                case R.id.nav_cart:
-                    startActivity(new Intent(HomeActivity.this, CartActivity.class));
-                    break;
-                case R.id.nav_notifications:
-                    startActivity(new Intent(HomeActivity.this, NotificationsActivity.class));
-                    break;
+            int id = item.getItemId();
+            if (id == R.id.nav_profile) {
+                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+            } else if (id == R.id.nav_cart) {
+                startActivity(new Intent(HomeActivity.this, CartActivity.class));
+            } else if (id == R.id.nav_notifications) {
+                startActivity(new Intent(HomeActivity.this, NotificationsActivity.class));
+            } else if (id == R.id.nav_home) {
+                // Optional: stay on home or refresh
             }
             return true;
         });

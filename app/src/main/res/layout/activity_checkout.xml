@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#212121"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -10,61 +10,53 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="Shipping Address"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="16dp"/>
 
         <EditText
             android:id="@+id/shippingAddressInput"
-            android:hint="Enter your address"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/input_background"
-            android:padding="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:text="Payment Method"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_height="wrap_content"
+            android:hint="Shipping Address"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="16dp"/>
 
         <RadioGroup
             android:id="@+id/paymentOptions"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:text="Cash on Delivery"
-                android:textColor="#FFFFFF"
+                android:id="@+id/codOption"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Cash on Delivery"/>
 
             <RadioButton
-                android:text="Credit Card"
-                android:textColor="#FFFFFF"
+                android:id="@+id/creditCardOption"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Credit Card"/>
 
             <RadioButton
-                android:text="E-Wallet"
-                android:textColor="#FFFFFF"
+                android:id="@+id/ewalletOption"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="E-Wallet"/>
         </RadioGroup>
 
         <Button
             android:id="@+id/confirmOrderBtn"
-            android:text="Confirm Order"
-            android:textColor="#FF5722"
-            android:backgroundTint="#FFFFFF"
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Confirm Order"
+            android:backgroundTint="@color/purple_700"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp"/>
     </LinearLayout>
 </ScrollView>
