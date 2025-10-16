@@ -26,17 +26,25 @@ public class NotificationsActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        toolbar.setNavigationOnClickListener(v -> finish()); // ✅ return to Home
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         notificationsRecyclerView = findViewById(R.id.notificationsRecyclerView);
         notificationsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Dummy notifications
         notificationsList = new ArrayList<>();
         notificationsList.add(new Product("Your order #123 has been shipped", "", R.drawable.logo));
         notificationsList.add(new Product("50% off Sneakers A!", "", R.drawable.logo));
         notificationsList.add(new Product("New arrivals in your favorite brand", "", R.drawable.logo));
 
-        notificationsAdapter = new ProductAdapter(this, notificationsList, product -> {});
+        // ✅ Only use the 4-argument version
+        notificationsAdapter = new ProductAdapter(this, notificationsList, product -> {}, "notifications");
         notificationsRecyclerView.setAdapter(notificationsAdapter);
+
+        // “Clear” button logic
+        notificationsAdapter.setOnDeleteClickListener(position -> {
+            notificationsList.remove(position);
+            notificationsAdapter.notifyItemRemoved(position);
+        });
     }
 }

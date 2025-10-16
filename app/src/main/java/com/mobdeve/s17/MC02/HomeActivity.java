@@ -35,13 +35,14 @@ public class HomeActivity extends AppCompatActivity {
         productList.add(new Product("Boots C", "$80", R.drawable.boots_c));
         productList.add(new Product("Running D", "$65", R.drawable.sneakers_a));
 
+        // ✅ Use the 4-argument ProductAdapter constructor
         adapter = new ProductAdapter(this, productList, product -> {
             Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
             intent.putExtra("productName", product.getName());
             intent.putExtra("productPrice", product.getPrice());
             intent.putExtra("productImage", product.getImageResId());
             startActivity(intent);
-        });
+        }, "home"); // 👈 this new argument tells the adapter it's on the Home page
 
         recyclerView.setAdapter(adapter);
 
@@ -58,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(HomeActivity.this, RegisterActivity.class));
         });
 
-        // Fixed listener using if-else
+        // Bottom navigation logic
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_profile) {
@@ -68,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
             } else if (id == R.id.nav_notifications) {
                 startActivity(new Intent(HomeActivity.this, NotificationsActivity.class));
             } else if (id == R.id.nav_home) {
-                // Optional: stay on home or refresh
+                // stay on home
             }
             return true;
         });

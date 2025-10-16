@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,8 +19,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     private Context context;
     private OnItemClickListener listener;
     private OnDeleteClickListener deleteListener;
+    private String mode; // "home", "cart", or "notifications"
 
-    // Click interfaces
+    // Interfaces
     public interface OnItemClickListener {
         void onItemClick(Product product);
     }
@@ -30,10 +31,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     public ProductAdapter(Context context, List<Product> productList,
-                          OnItemClickListener listener) {
+                          OnItemClickListener listener, String mode) {
         this.context = context;
         this.productList = productList;
         this.listener = listener;
+        this.mode = mode;
     }
 
     public void setOnDeleteClickListener(OnDeleteClickListener deleteListener) {
@@ -56,7 +58,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         holder.itemView.setOnClickListener(v -> listener.onItemClick(product));
 
-        // 🗑 Handle delete click
+        // Control visibility of delete/clear button
+        if (mode.equals("cart")) {
+            holder.deleteBtn.setVisibility(View.VISIBLE);
+            holder.deleteBtn.setImageResource(R.drawable.ic_delete); // trash icon
+        } else if (mode.equals("notifications")) {
+            holder.deleteBtn.setVisibility(View.VISIBLE);
+            holder.deleteBtn.setImageResource(R.drawable.ic_clear); // clear icon
+        } else {
+            holder.deleteBtn.setVisibility(View.GONE);
+        }
+
         holder.deleteBtn.setOnClickListener(v -> {
             if (deleteListener != null) {
                 deleteListener.onDeleteClick(holder.getAdapterPosition());
@@ -72,7 +84,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView name, price;
-        Button deleteBtn;
+        ImageButton deleteBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
