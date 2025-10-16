@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Toolbar with Back Button -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/brand_red"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleTextColor="@android:color/white"
+        app:navigationIcon="@drawable/ic_arrow_back" />
     <TextView
         android:id="@+id/cartTitle"
         android:layout_width="wrap_content"
@@ -30,11 +40,12 @@
         android:textStyle="bold"
         android:layout_marginBottom="12dp"/>
 
+
     <Button
         android:id="@+id/checkoutBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Proceed to Checkout"
-        android:backgroundTint="@color/purple_700"
+        android:backgroundTint="@color/brand_red_dark"
         android:textColor="@android:color/white"/>
 </LinearLayout>

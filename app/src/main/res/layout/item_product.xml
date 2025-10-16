@@ -13,7 +13,7 @@
         android:layout_height="150dp"
         android:scaleType="centerCrop"
         android:src="@drawable/logo"
-        android:contentDescription="Product Image"/>
+        android:contentDescription="Product Image" />
 
     <TextView
         android:id="@+id/productName"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="Product Name"
         android:textStyle="bold"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/productPrice"
@@ -29,5 +29,17 @@
         android:layout_height="wrap_content"
         android:text="$00"
         android:textColor="@color/purple_700"
-        android:layout_marginTop="4dp"/>
+        android:layout_marginTop="4dp" />
+
+    <!-- 🗑 Delete button -->
+    <Button
+        android:id="@+id/deleteBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/brand_red_dark"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp" />
+
 </LinearLayout>

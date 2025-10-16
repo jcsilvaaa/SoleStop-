@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -41,6 +40,42 @@
             android:text="Welcome! Explore our exclusive products."
             android:textColor="@color/brand_white"
             android:textSize="14sp"/>
+    </LinearLayout>
+
+    <!-- Login & Register Buttons Section -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/loginHomeBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_login"
+            android:drawablePadding="8dp"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/brand_red_dark"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/registerHomeBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_register"
+            android:drawablePadding="8dp"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/brand_red_dark"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="8dp"/>
     </LinearLayout>
 
     <!-- RecyclerView for Products -->
