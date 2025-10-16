@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,15 +18,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     private List<Product> productList;
     private Context context;
     private OnItemClickListener listener;
+    private OnDeleteClickListener deleteListener;
 
+    // Click interfaces
     public interface OnItemClickListener {
         void onItemClick(Product product);
     }
 
-    public ProductAdapter(Context context, List<Product> productList, OnItemClickListener listener) {
+    public interface OnDeleteClickListener {
+        void onDeleteClick(int position);
+    }
+
+    public ProductAdapter(Context context, List<Product> productList,
+                          OnItemClickListener listener) {
         this.context = context;
         this.productList = productList;
         this.listener = listener;
+    }
+
+    public void setOnDeleteClickListener(OnDeleteClickListener deleteListener) {
+        this.deleteListener = deleteListener;
     }
 
     @NonNull
@@ -43,6 +55,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.image.setImageResource(product.getImageResId());
 
         holder.itemView.setOnClickListener(v -> listener.onItemClick(product));
+
+        // 🗑 Handle delete click
+        holder.deleteBtn.setOnClickListener(v -> {
+            if (deleteListener != null) {
+                deleteListener.onDeleteClick(holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override
@@ -53,12 +72,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView name, price;
+        Button deleteBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.productImage);
             name = itemView.findViewById(R.id.productName);
             price = itemView.findViewById(R.id.productPrice);
+            deleteBtn = itemView.findViewById(R.id.deleteBtn);
         }
     }
 }

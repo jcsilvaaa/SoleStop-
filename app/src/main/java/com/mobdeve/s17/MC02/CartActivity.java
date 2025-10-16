@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,13 +26,22 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        // Toolbar with back button
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+        toolbar.setNavigationOnClickListener(v -> finish());
+
         cartRecyclerView = findViewById(R.id.cartRecyclerView);
         totalPrice = findViewById(R.id.totalPrice);
         checkoutBtn = findViewById(R.id.checkoutBtn);
 
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Dummy cart items
+        // Hardcoded cart items (always load fresh on restart)
         cartList = new ArrayList<>();
         cartList.add(new Product("Sneakers A", "$50", R.drawable.sneakers_a));
         cartList.add(new Product("Boots C", "$80", R.drawable.boots_c));
@@ -39,14 +49,25 @@ public class CartActivity extends AppCompatActivity {
         cartAdapter = new ProductAdapter(this, cartList, product -> {});
         cartRecyclerView.setAdapter(cartAdapter);
 
+        // 🗑 Handle delete button clicks
+        cartAdapter.setOnDeleteClickListener(position -> {
+            cartList.remove(position);
+            cartAdapter.notifyItemRemoved(position);
+            updateTotal();
+        });
+
+        updateTotal();
+
+        checkoutBtn.setOnClickListener(v ->
+                startActivity(new Intent(CartActivity.this, CheckoutActivity.class))
+        );
+    }
+
+    private void updateTotal() {
         int total = 0;
         for (Product p : cartList) {
             total += Integer.parseInt(p.getPrice().replace("$", ""));
         }
         totalPrice.setText("Total: $" + total);
-
-        checkoutBtn.setOnClickListener(v -> {
-            startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
-        });
     }
 }

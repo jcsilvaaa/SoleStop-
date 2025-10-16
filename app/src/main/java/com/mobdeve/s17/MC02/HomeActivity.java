@@ -2,6 +2,7 @@ package com.mobdeve.s17.MC02;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -45,6 +46,17 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         bottomNav = findViewById(R.id.bottomNav);
+
+        Button loginHomeBtn = findViewById(R.id.loginHomeBtn);
+        Button registerHomeBtn = findViewById(R.id.registerHomeBtn);
+
+        loginHomeBtn.setOnClickListener(v -> {
+            startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+        });
+
+        registerHomeBtn.setOnClickListener(v -> {
+            startActivity(new Intent(HomeActivity.this, RegisterActivity.class));
+        });
 
         // Fixed listener using if-else
         bottomNav.setOnItemSelectedListener(item -> {
