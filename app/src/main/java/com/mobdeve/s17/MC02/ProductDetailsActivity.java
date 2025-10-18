@@ -25,7 +25,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDescription = findViewById(R.id.productDetailDescription);
         addToCartBtn = findViewById(R.id.addToCartBtn);
 
-        // Set dummy data from Intent
+        
         productName.setText(getIntent().getStringExtra("productName"));
         productPrice.setText(getIntent().getStringExtra("productPrice"));
         productImage.setImageResource(getIntent().getIntExtra("productImage", R.drawable.sneakers_a));
