@@ -19,7 +19,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     private Context context;
     private OnItemClickListener listener;
     private OnDeleteClickListener deleteListener;
-    private String mode; // "home", "cart", or "notifications"
+    private String mode; 
 
     // Interfaces
     public interface OnItemClickListener {
@@ -58,13 +58,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         holder.itemView.setOnClickListener(v -> listener.onItemClick(product));
 
-        // Control visibility of delete/clear button
+        
         if (mode.equals("cart")) {
             holder.deleteBtn.setVisibility(View.VISIBLE);
-            holder.deleteBtn.setImageResource(R.drawable.ic_delete); // trash icon
+            holder.deleteBtn.setImageResource(R.drawable.ic_delete); 
         } else if (mode.equals("notifications")) {
             holder.deleteBtn.setVisibility(View.VISIBLE);
-            holder.deleteBtn.setImageResource(R.drawable.ic_clear); // clear icon
+            holder.deleteBtn.setImageResource(R.drawable.ic_clear); 
         } else {
             holder.deleteBtn.setVisibility(View.GONE);
         }
