@@ -41,26 +41,26 @@ public class CartActivity extends AppCompatActivity {
 
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // 🛒 Hardcoded cart items (reload each app start)
+        
         cartList = new ArrayList<>();
         cartList.add(new Product("Sneakers A", "$50", R.drawable.sneakers_a));
         cartList.add(new Product("Boots C", "$80", R.drawable.boots_c));
 
-        // ✅ Use the 4-argument constructor with mode = "cart"
+     
         cartAdapter = new ProductAdapter(this, cartList, product -> {}, "cart");
         cartRecyclerView.setAdapter(cartAdapter);
 
-        // 🗑 Handle delete button clicks
+       
         cartAdapter.setOnDeleteClickListener(position -> {
             cartList.remove(position);
             cartAdapter.notifyItemRemoved(position);
             updateTotal();
         });
 
-        // Display total price
+       
         updateTotal();
 
-        // Checkout button
+      
         checkoutBtn.setOnClickListener(v ->
                 startActivity(new Intent(CartActivity.this, CheckoutActivity.class))
         );
