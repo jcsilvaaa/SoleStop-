@@ -23,7 +23,7 @@ public class ProfileActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        toolbar.setNavigationOnClickListener(v -> finish()); // ✅ goes back to Home
+        toolbar.setNavigationOnClickListener(v -> finish()); // 
 
         nameProfileInput = findViewById(R.id.nameProfileInput);
         emailProfileInput = findViewById(R.id.emailProfileInput);
