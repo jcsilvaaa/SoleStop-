@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // 🔹 Toolbar setup with back button
+      
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -28,14 +28,14 @@ public class LoginActivity extends AppCompatActivity {
         }
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        // 🔹 UI logic
+     
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         loginBtn = findViewById(R.id.loginBtn);
         signUpLink = findViewById(R.id.signUpLink);
 
         loginBtn.setOnClickListener(v -> {
-            // Prototype: go to Home
+          
             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
         });
 
