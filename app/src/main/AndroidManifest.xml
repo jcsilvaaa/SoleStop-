@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MC02_Jamilano_Silva">
 
-        <!-- Launcher Activity -->
         <activity
             android:name=".HomeActivity"
             android:exported="true"
@@ -26,12 +25,14 @@
 
         <!-- Other activities -->
         <activity android:name=".ProfileActivity" android:exported="false" />
+        <activity android:name=".EditProfileActivity" android:exported="false" />
         <activity android:name=".CartActivity" android:exported="false" />
         <activity android:name=".NotificationsActivity" android:exported="false" />
         <activity android:name=".ProductDetailsActivity" android:exported="false" />
         <activity android:name=".CheckoutActivity" android:exported="false" />
         <activity android:name=".LoginActivity" android:exported="false" />
         <activity android:name=".RegisterActivity" android:exported="false" />
+
 
     </application>
 
