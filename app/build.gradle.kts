@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.mobdeve.s17.MC02"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.mobdeve.s17.MC02"
