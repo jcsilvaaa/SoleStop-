@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,7 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button registerBtn;
 
     FirebaseAuth auth;
-    FirebaseFirestore firestore;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,55 +37,57 @@ public class RegisterActivity extends AppCompatActivity {
         }
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        // Firebase
+        // Firebase init
         auth = FirebaseAuth.getInstance();
-        firestore = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
 
-        // Inputs
+        // UI
         nameInput = findViewById(R.id.nameInput);
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         addressInput = findViewById(R.id.addressInput);
         registerBtn = findViewById(R.id.registerBtn);
 
-        registerBtn.setOnClickListener(v -> {
-            String name = nameInput.getText().toString().trim();
-            String email = emailInput.getText().toString().trim();
-            String password = passwordInput.getText().toString().trim();
-            String address = addressInput.getText().toString().trim();
+        registerBtn.setOnClickListener(v -> registerUser());
+    }
 
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                passwordInput.setError("All fields required.");
-                return;
-            }
+    private void registerUser() {
+        String name = nameInput.getText().toString().trim();
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
+        String address = addressInput.getText().toString().trim();
 
-            // Create Firebase User
-            auth.createUserWithEmailAndPassword(email, password)
-                    .addOnSuccessListener(result -> {
-                        String uid = auth.getCurrentUser().getUid();
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || address.isEmpty()) {
+            Toast.makeText(this, "Please fill up all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-                        // Save user profile to Firestore
-                        Map<String, Object> userData = new HashMap<>();
-                        userData.put("name", name);
-                        userData.put("email", email);
-                        userData.put("address", address);
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnSuccessListener(result -> {
+                    String userId = auth.getCurrentUser().getUid();
 
-                        firestore.collection("users")
-                                .document(uid)
-                                .set(userData)
-                                .addOnSuccessListener(a -> {
-                                    // Go to home
-                                    startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
-                                    finish();
-                                })
-                                .addOnFailureListener(e ->
-                                        passwordInput.setError("Error saving profile: " + e.getMessage())
-                                );
+                    // The data to save to Firestore
+                    Map<String, Object> userMap = new HashMap<>();
+                    userMap.put("name", name);
+                    userMap.put("email", email);
+                    userMap.put("address", address);
+                    userMap.put("createdAt", System.currentTimeMillis());
 
-                    })
-                    .addOnFailureListener(e ->
-                            passwordInput.setError("Registration failed: " + e.getMessage())
-                    );
-        });
+                    // Save to Firestore inside "users" collection
+                    db.collection("users")
+                            .document(userId)
+                            .set(userMap)
+                            .addOnSuccessListener(unused -> {
+                                Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                                finish();
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(this, "Failed to save user: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            });
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(this, "Registration Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                );
     }
 }
