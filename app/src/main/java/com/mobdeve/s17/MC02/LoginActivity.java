@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -14,12 +18,14 @@ public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     TextView signUpLink;
 
+    FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-      
+        // Toolbar setup
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -28,17 +34,39 @@ public class LoginActivity extends AppCompatActivity {
         }
         toolbar.setNavigationOnClickListener(v -> finish());
 
-     
+        // Firebase init
+        auth = FirebaseAuth.getInstance();
+
+        // UI logic
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         loginBtn = findViewById(R.id.loginBtn);
         signUpLink = findViewById(R.id.signUpLink);
 
+        // Login Firebase Logic
         loginBtn.setOnClickListener(v -> {
-          
-            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            String email = emailInput.getText().toString().trim();
+            String password = passwordInput.getText().toString().trim();
+
+            if (email.isEmpty() || password.isEmpty()) {
+                passwordInput.setError("Email and password required");
+                return;
+            }
+
+            auth.signInWithEmailAndPassword(email, password)
+                    .addOnSuccessListener(result -> {
+                        FirebaseUser user = auth.getCurrentUser();
+
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                    })
+                    .addOnFailureListener(e -> {
+                        passwordInput.setError("Invalid login: " + e.getMessage());
+                    });
         });
 
+        // Go to register page
         signUpLink.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
