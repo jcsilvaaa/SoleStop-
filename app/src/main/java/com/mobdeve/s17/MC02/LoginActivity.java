@@ -11,6 +11,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -55,14 +57,23 @@ public class LoginActivity extends AppCompatActivity {
 
             auth.signInWithEmailAndPassword(email, password)
                     .addOnSuccessListener(result -> {
-                        FirebaseUser user = auth.getCurrentUser();
 
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        startActivity(intent);
-                        finish();
-                    })
-                    .addOnFailureListener(e -> {
-                        passwordInput.setError("Invalid login: " + e.getMessage());
+                        String uid = auth.getCurrentUser().getUid();
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                        db.collection("users").document(uid).get()
+                                .addOnSuccessListener(document -> {
+                                    if (document.exists()) {
+                                        // OPTIONAL: Cache user data (SharedPreferences)
+                                        // We will add this later
+
+                                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                        finish();
+                                    }
+                                })
+                                .addOnFailureListener(e ->
+                                        Toast.makeText(this, "Failed to load user profile: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                                );
                     });
         });
 

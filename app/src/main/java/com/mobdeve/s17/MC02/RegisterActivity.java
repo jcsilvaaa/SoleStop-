@@ -28,66 +28,54 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Toolbar setup
+        // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        // Firebase init
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // UI
         nameInput = findViewById(R.id.nameInput);
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         addressInput = findViewById(R.id.addressInput);
         registerBtn = findViewById(R.id.registerBtn);
 
-        registerBtn.setOnClickListener(v -> registerUser());
-    }
+        registerBtn.setOnClickListener(v -> {
+            String name = nameInput.getText().toString().trim();
+            String email = emailInput.getText().toString().trim();
+            String password = passwordInput.getText().toString().trim();
+            String address = addressInput.getText().toString().trim();
 
-    private void registerUser() {
-        String name = nameInput.getText().toString().trim();
-        String email = emailInput.getText().toString().trim();
-        String password = passwordInput.getText().toString().trim();
-        String address = addressInput.getText().toString().trim();
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "All fields required", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || address.isEmpty()) {
-            Toast.makeText(this, "Please fill up all fields", Toast.LENGTH_SHORT).show();
-            return;
-        }
+            auth.createUserWithEmailAndPassword(email, password)
+                    .addOnSuccessListener(result -> {
 
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnSuccessListener(result -> {
-                    String userId = auth.getCurrentUser().getUid();
+                        String uid = auth.getCurrentUser().getUid();
 
-                    // The data to save to Firestore
-                    Map<String, Object> userMap = new HashMap<>();
-                    userMap.put("name", name);
-                    userMap.put("email", email);
-                    userMap.put("address", address);
-                    userMap.put("createdAt", System.currentTimeMillis());
+                        // Save user data to Firestore
+                        Map<String, Object> user = new HashMap<>();
+                        user.put("name", name);
+                        user.put("email", email);
+                        user.put("address", address);
 
-                    // Save to Firestore inside "users" collection
-                    db.collection("users")
-                            .document(userId)
-                            .set(userMap)
-                            .addOnSuccessListener(unused -> {
-                                Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
-                                finish();
-                            })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(this, "Failed to save user: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            });
-                })
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, "Registration Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                );
+                        db.collection("users")
+                                .document(uid)
+                                .set(user)
+                                .addOnSuccessListener(unused -> {
+                                    Toast.makeText(this, "Registration success!", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(this, HomeActivity.class));
+                                    finish();
+                                });
+                    })
+                    .addOnFailureListener(e ->
+                            Toast.makeText(this, "Registration failed: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                    );
+        });
     }
 }
