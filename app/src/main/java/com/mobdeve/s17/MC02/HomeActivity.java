@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
+import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.firebase.auth.FirebaseAuth;
-import android.view.View;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -55,11 +54,15 @@ public class HomeActivity extends AppCompatActivity {
 
         Button loginHomeBtn = findViewById(R.id.loginHomeBtn);
         Button registerHomeBtn = findViewById(R.id.registerHomeBtn);
+        Button logoutHomeBtn = findViewById(R.id.logoutHomeBtn); // make sure you add this button in XML
 
         if (auth.getCurrentUser() != null) {
-            // User logged in → hide buttons
+            // User logged in → hide login/register buttons, show logout
             loginHomeBtn.setVisibility(View.GONE);
             registerHomeBtn.setVisibility(View.GONE);
+            logoutHomeBtn.setVisibility(View.VISIBLE);
+        } else {
+            logoutHomeBtn.setVisibility(View.GONE);
         }
 
         loginHomeBtn.setOnClickListener(v -> {
@@ -68,6 +71,15 @@ public class HomeActivity extends AppCompatActivity {
 
         registerHomeBtn.setOnClickListener(v -> {
             startActivity(new Intent(HomeActivity.this, RegisterActivity.class));
+        });
+
+        // Logout button logic
+        logoutHomeBtn.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut(); // sign out user
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // prevent back navigation
+            startActivity(intent);
+            finish();
         });
 
         // Bottom navigation logic
