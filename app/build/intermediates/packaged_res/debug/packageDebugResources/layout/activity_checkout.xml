@@ -68,6 +68,17 @@
                 android:text="E-Wallet"/>
         </RadioGroup>
 
+        <!-- ⭐ ADDED TOTAL PRICE HERE ⭐ -->
+        <TextView
+            android:id="@+id/orderTotalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Payment: $0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
         <Button
             android:id="@+id/confirmOrderBtn"
             android:layout_width="match_parent"

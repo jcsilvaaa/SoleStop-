@@ -61,6 +61,7 @@ id nav_notifications
 id nav_profile
 id nav_settings
 id notificationsRecyclerView
+id orderTotalText
 id passwordInput
 id paymentOptions
 id productDetailDescription

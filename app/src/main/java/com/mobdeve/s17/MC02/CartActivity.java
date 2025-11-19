@@ -1,10 +1,11 @@
 package com.mobdeve.s17.MC02;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,7 @@ public class CartActivity extends AppCompatActivity {
     ProductAdapter cartAdapter;
     List<Product> cartList;
     TextView totalPrice;
+    Button checkoutBtn;
 
     FirebaseFirestore db;
     String userId;
@@ -43,6 +46,7 @@ public class CartActivity extends AppCompatActivity {
 
         cartRecyclerView = findViewById(R.id.cartRecyclerView);
         totalPrice = findViewById(R.id.totalPrice);
+        checkoutBtn = findViewById(R.id.checkoutBtn);
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         cartList = new ArrayList<>();
@@ -70,6 +74,8 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+        checkoutBtn.setOnClickListener(v -> goToCheckout());
+
         loadCartFromFirestore();
     }
 
@@ -84,7 +90,7 @@ public class CartActivity extends AppCompatActivity {
                     for (DocumentSnapshot doc : snapshot.getDocuments()) {
                         String name = doc.getString("name");
                         String price = doc.getString("price");
-                        Long imageRes = doc.getLong("imageResId"); // Firestore stores numbers as Long
+                        Long imageRes = doc.getLong("imageResId");
                         Product p = new Product(name, price, imageRes != null ? imageRes.intValue() : 0);
                         p.setFirestoreId(doc.getId());
                         cartList.add(p);
@@ -102,5 +108,20 @@ public class CartActivity extends AppCompatActivity {
             total += Integer.parseInt(p.getPrice().replace("$", ""));
         }
         totalPrice.setText("Total: $" + total);
+    }
+
+    private void goToCheckout() {
+        if (cartList.isEmpty()) {
+            Toast.makeText(this, "Cart is empty!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Convert cart items to JSON
+        Gson gson = new Gson();
+        String cartJson = gson.toJson(cartList);
+
+        Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
+        intent.putExtra("cart_items_json", cartJson);
+        startActivity(intent);
     }
 }

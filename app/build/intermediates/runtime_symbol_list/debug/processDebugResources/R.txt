@@ -3543,6 +3543,7 @@ int id open_search_view_search_prefix 0x7f080178
 int id open_search_view_status_bar_spacer 0x7f080179
 int id open_search_view_toolbar 0x7f08017a
 int id open_search_view_toolbar_container 0x7f08017b
+int id orderTotalText 0x7f080234
 int id outline 0x7f08017c
 int id outward 0x7f08017d
 int id overshoot 0x7f08017e
