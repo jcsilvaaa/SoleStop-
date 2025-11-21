@@ -24,6 +24,16 @@
         android:textStyle="bold"
         android:layout_marginTop="8dp" />
 
+    <!-- ⭐ BRAND (NEW) -->
+    <TextView
+        android:id="@+id/productBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brand"
+        android:textColor="#555"
+        android:textSize="13sp"
+        android:layout_marginTop="2dp"/>
+
     <TextView
         android:id="@+id/productPrice"
         android:layout_width="wrap_content"
@@ -32,7 +42,6 @@
         android:textColor="@color/purple_700"
         android:layout_marginTop="4dp" />
 
-    <!-- Add to Cart Button -->
     <Button
         android:id="@+id/addToCartBtn"
         android:layout_width="match_parent"
@@ -41,9 +50,8 @@
         android:backgroundTint="@color/brand_red_dark"
         android:textColor="@android:color/white"
         android:layout_marginTop="8dp"
-        android:visibility="gone" /> <!-- Initially gone; visible in Home mode -->
+        android:visibility="gone" />
 
-    <!-- 🗑 Delete / Clear button -->
     <ImageButton
         android:id="@+id/deleteBtn"
         android:layout_width="40dp"
@@ -55,4 +63,5 @@
         app:tint="@color/brand_red_dark"
         android:visibility="gone"
         android:layout_marginTop="8dp" />
+
 </LinearLayout>

@@ -91,6 +91,28 @@
             android:visibility="gone"/> <!-- initially hidden -->
     </LinearLayout>
 
+    <!-- SEARCH + FILTER SECTION -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- SEARCH BAR -->
+        <SearchView
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="Search products..." />
+
+        <!-- BRAND FILTER DROPDOWN -->
+        <Spinner
+            android:id="@+id/spinnerBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
     <!-- RecyclerView for Products -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productRecyclerView"
