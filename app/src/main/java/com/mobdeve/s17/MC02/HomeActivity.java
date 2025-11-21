@@ -46,9 +46,15 @@ public class HomeActivity extends AppCompatActivity {
         // productList initialization
         productList = new ArrayList<>();
         productList.add(new Product("Adidas Tokyo", "$50", R.drawable.adidas_tokyo, "Adidas"));
+        productList.add(new Product("Adidas Gazelle", "$70", R.drawable.gazelle, "Adidas"));
+        productList.add(new Product("New Balance 1906r", "$70", R.drawable.newbalance, "New Balance"));
         productList.add(new Product("New Balance X Miu Miu", "$70", R.drawable.new_balance, "New Balance"));
         productList.add(new Product("PUMA H-Street", "$80", R.drawable.puma, "PUMA"));
+        productList.add(new Product("PUMA Speedcat", "$60", R.drawable.speedcat, "PUMA"));
         productList.add(new Product("Onitsuka Tiger Kill Bill", "$65", R.drawable.onitsuka, "Onitsuka"));
+        productList.add(new Product("Onitsuka Tiger Tokuten", "$55", R.drawable.tokuten, "Onitsuka"));
+        productList.add(new Product("Nike P6000", "$45", R.drawable.nike, "Nike"));
+        productList.add(new Product("Nike Dunk Low", "$60", R.drawable.dunk, "Nike"));
 
         filteredList = new ArrayList<>(productList);
 
@@ -56,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         ArrayAdapter<String> spinAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
-                new String[]{"All", "Adidas", "PUMA", "New Balance", "Onitsuka"}
+                new String[]{"All", "Adidas", "PUMA", "New Balance", "Onitsuka", "Nike"}
         );
         filterSpinner.setAdapter(spinAdapter);
 
