@@ -2,7 +2,12 @@ package com.mobdeve.s17.MC02;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Spinner;
+import android.widget.AdapterView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,6 +24,11 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProductAdapter adapter;
     List<Product> productList;
+    List<Product> filteredList;
+
+    Spinner filterSpinner;
+    SearchView searchView;
+
     BottomNavigationView bottomNav;
 
     @Override
@@ -29,16 +39,29 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.productRecyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        // Sample products
-        productList = new ArrayList<>();
-        productList.add(new Product("Sneakers A", "$50", R.drawable.sneakers_a));
-        productList.add(new Product("Sneakers B", "$70", R.drawable.sneakers_b));
-        productList.add(new Product("Boots C", "$80", R.drawable.boots_c));
-        productList.add(new Product("Running D", "$65", R.drawable.sneakers_a));
+        searchView = findViewById(R.id.searchBar);
+        filterSpinner = findViewById(R.id.spinnerBrand);
 
-        // Adapter → Item click only opens details
-        adapter = new ProductAdapter(this, productList, product -> {
-            // Open product details
+        // ✅ Importing your Product class
+        // productList initialization
+        productList = new ArrayList<>();
+        productList.add(new Product("Adidas Tokyo", "$50", R.drawable.adidas_tokyo, "Adidas"));
+        productList.add(new Product("New Balance X Miu Miu", "$70", R.drawable.new_balance, "New Balance"));
+        productList.add(new Product("PUMA H-Street", "$80", R.drawable.puma, "PUMA"));
+        productList.add(new Product("Onitsuka Tiger Kill Bill", "$65", R.drawable.onitsuka, "Onitsuka"));
+
+        filteredList = new ArrayList<>(productList);
+
+        // Brand filter options
+        ArrayAdapter<String> spinAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                new String[]{"All", "Adidas", "PUMA", "New Balance", "Onitsuka"}
+        );
+        filterSpinner.setAdapter(spinAdapter);
+
+        // Adapter
+        adapter = new ProductAdapter(this, filteredList, product -> {
             Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
             intent.putExtra("productName", product.getName());
             intent.putExtra("productPrice", product.getPrice());
@@ -48,6 +71,29 @@ public class HomeActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
+        // SEARCH LISTENER
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) { return false; }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                filterProducts();
+                return true;
+            }
+        });
+
+        // BRAND FILTER LISTENER
+        filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                filterProducts();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
         bottomNav = findViewById(R.id.bottomNav);
 
         Button loginHomeBtn = findViewById(R.id.loginHomeBtn);
@@ -55,11 +101,11 @@ public class HomeActivity extends AppCompatActivity {
         Button logoutHomeBtn = findViewById(R.id.logoutHomeBtn);
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            loginHomeBtn.setVisibility(Button.GONE);
-            registerHomeBtn.setVisibility(Button.GONE);
-            logoutHomeBtn.setVisibility(Button.VISIBLE);
+            loginHomeBtn.setVisibility(View.GONE);
+            registerHomeBtn.setVisibility(View.GONE);
+            logoutHomeBtn.setVisibility(View.VISIBLE);
         } else {
-            logoutHomeBtn.setVisibility(Button.GONE);
+            logoutHomeBtn.setVisibility(View.GONE);
         }
 
         loginHomeBtn.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, LoginActivity.class)));
@@ -84,10 +130,27 @@ public class HomeActivity extends AppCompatActivity {
             } else if (id == R.id.nav_notifications) {
                 startActivity(new Intent(HomeActivity.this, NotificationsActivity.class));
                 return true;
-            } else if (id == R.id.nav_home) {
-                return true;
             }
-            return false;
+            return id == R.id.nav_home;
         });
+    }
+
+    // Filtering Logic (brand + search)
+    private void filterProducts() {
+        String query = searchView.getQuery().toString().toLowerCase();
+        String brand = filterSpinner.getSelectedItem().toString();
+
+        filteredList.clear();
+
+        for (Product p : productList) {
+            boolean matchesSearch = p.getName().toLowerCase().contains(query);
+            boolean matchesBrand = brand.equals("All") || p.getBrand().equalsIgnoreCase(brand);
+
+            if (matchesSearch && matchesBrand) {
+                filteredList.add(p);
+            }
+        }
+
+        adapter.updateList(filteredList);
     }
 }

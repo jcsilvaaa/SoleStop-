@@ -4,50 +4,38 @@ public class Product {
     private String name;
     private String price;
     private int imageResId;
-
-    // Firestore ID (auto-generated when saved)
+    private String brand;
     private String firestoreId;
 
-    // ✅ REQUIRED by Firestore for automatic object mapping
-    public Product() {
-    }
+    // REQUIRED no-arg constructor
+    public Product() {}
 
+    // 3-parameter constructor
     public Product(String name, String price, int imageResId) {
         this.name = name;
         this.price = price;
         this.imageResId = imageResId;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public int getImageResId() {
-        return imageResId;
-    }
-
-    public String getFirestoreId() {
-        return firestoreId;
-    }
-
-    public void setFirestoreId(String firestoreId) {
-        this.firestoreId = firestoreId;
-    }
-
-    // Optional setters (needed for Firestore too)
-    public void setName(String name) {
+    // 4-parameter constructor
+    public Product(String name, String price, int imageResId, String brand) {
         this.name = name;
-    }
-
-    public void setPrice(String price) {
         this.price = price;
+        this.imageResId = imageResId;
+        this.brand = brand;
     }
 
-    public void setImageResId(int imageResId) {
-        this.imageResId = imageResId;
-    }
+    // Getters
+    public String getName() { return name; }
+    public String getPrice() { return price; }
+    public int getImageResId() { return imageResId; }
+    public String getBrand() { return brand; }
+    public String getFirestoreId() { return firestoreId; }
+
+    // Setters
+    public void setName(String name) { this.name = name; }
+    public void setPrice(String price) { this.price = price; }
+    public void setImageResId(int imageResId) { this.imageResId = imageResId; }
+    public void setBrand(String brand) { this.brand = brand; }
+    public void setFirestoreId(String firestoreId) { this.firestoreId = firestoreId; }
 }

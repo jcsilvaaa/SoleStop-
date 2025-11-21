@@ -91,7 +91,10 @@ public class CartActivity extends AppCompatActivity {
                         String name = doc.getString("name");
                         String price = doc.getString("price");
                         Long imageRes = doc.getLong("imageResId");
+                        String brand = doc.getString("brand");
+
                         Product p = new Product(name, price, imageRes != null ? imageRes.intValue() : 0);
+                        p.setBrand(brand);
                         p.setFirestoreId(doc.getId());
                         cartList.add(p);
                     }

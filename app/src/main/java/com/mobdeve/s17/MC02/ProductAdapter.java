@@ -65,24 +65,25 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         holder.name.setText(product.getName());
         holder.price.setText(product.getPrice());
+        holder.brand.setText(product.getBrand());       // ⭐ BRAND
         holder.image.setImageResource(product.getImageResId());
 
-        // -----------------------------
-        // ITEM CLICK → Open Product Details ONLY
-        // -----------------------------
+        // CLICK → PRODUCT DETAILS
         holder.itemView.setOnClickListener(v -> listener.onItemClick(product));
 
         // -----------------------------
-        // ADD TO CART BUTTON
+        // ADD TO CART (HOME ONLY)
         // -----------------------------
         if (mode.equals("home")) {
             holder.addToCartBtn.setVisibility(View.VISIBLE);
             holder.addToCartBtn.setOnClickListener(v -> {
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
                 Map<String, Object> cartItem = new HashMap<>();
                 cartItem.put("name", product.getName());
                 cartItem.put("price", product.getPrice());
                 cartItem.put("imageResId", product.getImageResId());
+                cartItem.put("brand", product.getBrand());
 
                 db.collection("users")
                         .document(userId)
@@ -99,7 +100,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
 
         // -----------------------------
-        // DELETE BUTTON (Cart / Notifications)
+        // DELETE BUTTON (cart/notifications)
         // -----------------------------
         if (mode.equals("cart")) {
             holder.deleteBtn.setVisibility(View.VISIBLE);
@@ -123,7 +124,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                         .collection("cart")
                         .document(product.getFirestoreId())
                         .delete()
-                        .addOnSuccessListener(unused -> Toast.makeText(context, "Removed from cart!", Toast.LENGTH_SHORT).show());
+                        .addOnSuccessListener(unused ->
+                                Toast.makeText(context, "Removed from cart!", Toast.LENGTH_SHORT).show()
+                        );
             }
         });
     }
@@ -133,27 +136,27 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         return productList.size();
     }
 
-    // -----------------------------
-    // UPDATE LIST (for CartActivity)
-    // -----------------------------
     public void updateList(List<Product> newList) {
         this.productList = newList;
         notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
         ImageView image;
-        TextView name, price;
+        TextView name, price, brand;   // ⭐ BRAND added
         ImageButton deleteBtn;
-        Button addToCartBtn; // 🔥 new button
+        Button addToCartBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             image = itemView.findViewById(R.id.productImage);
             name = itemView.findViewById(R.id.productName);
             price = itemView.findViewById(R.id.productPrice);
+            brand = itemView.findViewById(R.id.productBrand);   // ⭐ BRAND
             deleteBtn = itemView.findViewById(R.id.deleteBtn);
-            addToCartBtn = itemView.findViewById(R.id.addToCartBtn); // 🔥 initialize
+            addToCartBtn = itemView.findViewById(R.id.addToCartBtn);
         }
     }
 }
