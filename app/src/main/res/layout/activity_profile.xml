@@ -71,5 +71,12 @@
             android:textColor="@android:color/white"
             android:padding="12dp" />
 
+        <Button
+            android:id="@+id/orderHistoryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Order History"
+            android:layout_marginTop="16dp"/>
+
     </LinearLayout>
 </ScrollView>
