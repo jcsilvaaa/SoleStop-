@@ -14,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ProfileActivity extends AppCompatActivity {
 
     TextView profileName, profileEmail, profileAddress;
-    Button editProfileBtn;
+    Button editProfileBtn, orderHistoryBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,9 @@ public class ProfileActivity extends AppCompatActivity {
         profileAddress = findViewById(R.id.profileAddress);
         editProfileBtn = findViewById(R.id.editProfileBtn);
 
+        // New button for order history
+        orderHistoryBtn = findViewById(R.id.orderHistoryBtn);
+
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -51,7 +54,6 @@ public class ProfileActivity extends AppCompatActivity {
                         profileEmail.setText(email);
                         profileAddress.setText(address);
 
-                        // Store in tags for passing to Edit screen
                         profileName.setTag(name);
                         profileEmail.setTag(email);
                         profileAddress.setTag(address);
@@ -66,5 +68,10 @@ public class ProfileActivity extends AppCompatActivity {
             i.putExtra("address", (String) profileAddress.getTag());
             startActivity(i);
         });
+
+        // Open OrderHistoryActivity
+        orderHistoryBtn.setOnClickListener(v ->
+                startActivity(new Intent(ProfileActivity.this, OrderHistoryActivity.class))
+        );
     }
 }
