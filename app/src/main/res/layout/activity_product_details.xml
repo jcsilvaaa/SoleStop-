@@ -54,12 +54,51 @@
             android:layout_marginTop="12dp"
             android:textSize="16sp"/>
 
+        <!-- ⭐ FEEDBACK SECTION STARTS HERE -->
+
+        <TextView
+            android:id="@+id/feedbackHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Feedback"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/feedbackRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Input area -->
+        <EditText
+            android:id="@+id/feedbackInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write your feedback..."
+            android:padding="10dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/postFeedbackBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Feedback"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/brand_red_dark"
+            android:textColor="@android:color/white"/>
+
+        <!-- ⭐ FEEDBACK SECTION ENDS HERE -->
+
         <Button
             android:id="@+id/addToCartBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add to Cart"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:backgroundTint="@color/brand_red_dark"
             android:textColor="@android:color/white"/>
     </LinearLayout>
