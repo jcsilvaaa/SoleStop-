@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/brand_red"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:elevation="4dp"
+            android:title="Profile"
+            android:titleTextColor="@android:color/white" />
+
+        <!-- Avatar -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center"
+            android:contentDescription="Profile Logo"
+            android:scaleType="centerCrop" />
+
+        <!-- Profile information -->
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/profileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/profileAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:padding="4dp" />
+
+        <!-- Edit button -->
+        <Button
+            android:id="@+id/editProfileBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/brand_red_dark"
+            android:textColor="@android:color/white"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/orderHistoryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Order History"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
