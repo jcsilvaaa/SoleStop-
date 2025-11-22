@@ -1,0 +1,266 @@
+[
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_product_details.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_product_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_sneakers_a.jpg.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\sneakers_a.jpg"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_item_feedback.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\item_feedback.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_item_product.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\item_product.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_cart.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_logo.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_delete.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_delete.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_arrow_back.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_arrow_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_transition1.jpg.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\transition1.jpg"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_checkout.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_checkout.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_edit_activity_profile.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\edit_activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_profile.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_onitsuka.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\onitsuka.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_login.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_order_history.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_order_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_logo.jpg.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\logo.jpg"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\menu_nav_drawer_menu.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\menu\\nav_drawer_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_home.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_transition1.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\transition1.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_register.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_clear.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_clear.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_transition2.jpg.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\transition2.jpg"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_adidas_tokyo.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\adidas_tokyo.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_profile.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_puma.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\puma.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_tokuten.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\tokuten.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_new_balance.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\new_balance.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_newbalance.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\newbalance.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_gazelle.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\gazelle.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_transition2.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\transition2.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_cart.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_cart.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_dunk.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\dunk.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_nike.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\nike.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_notifications.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_notifications.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_settings.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_item_order.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\item_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_speedcat.png.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\speedcat.png"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_item_bg.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\item_bg.xml"
+    },
+    {
+        "merged": "com.mobdeve.s17.MC02.app-debug-48:/layout_activity_home.xml.flat",
+        "source": "com.mobdeve.s17.MC02.app-main-50:/layout/activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_sneakers_b.jpg.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\sneakers_b.jpg"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_edittext_bg.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\edittext_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_dialog_edit_feedback.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\dialog_edit_feedback.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_activity_home.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\drawable_boots_c.jpg.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\drawable\\boots_c.jpg"
+    },
+    {
+        "merged": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-debug-48:\\layout_dialog_rating_input.xml.flat",
+        "source": "C:\\Users\\JC\\.gradle\\daemon\\8.13\\com.mobdeve.s17.MC02.app-main-50:\\layout\\dialog_rating_input.xml"
+    }
+]
