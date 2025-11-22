@@ -1,6 +1,8 @@
 package com.mobdeve.s17.MC02;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +32,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    // Interfaces
     public interface OnItemClickListener {
         void onItemClick(Product product);
     }
@@ -60,30 +61,51 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         Product product = productList.get(position);
 
         holder.name.setText(product.getName());
         holder.price.setText(product.getPrice());
-        holder.brand.setText(product.getBrand());       // ⭐ BRAND
-        holder.image.setImageResource(product.getImageResId());
+        holder.brand.setText(product.getBrand() != null ? product.getBrand() : "Other");
 
-        // CLICK → PRODUCT DETAILS
-        holder.itemView.setOnClickListener(v -> listener.onItemClick(product));
+        // Image: prefer remote if available
+        if (product.getImageUrl() != null && !product.getImageUrl().isEmpty()) {
+            // If you have Glide dependency, uncomment below and add dependency.
+            // Glide.with(context).load(product.getImageUrl()).into(holder.image);
 
-        // -----------------------------
-        // ADD TO CART (HOME ONLY)
-        // -----------------------------
-        if (mode.equals("home")) {
+            // Fallback: try to open image url in browser when clicked (since we didn't load)
+            holder.image.setImageResource(R.drawable.logo); // temporary placeholder
+            holder.image.setOnClickListener(v -> {
+                Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(product.getImageUrl()));
+                context.startActivity(browser);
+            });
+        } else if (product.getImageResId() != 0) {
+            holder.image.setImageResource(product.getImageResId());
+            holder.image.setOnClickListener(null);
+        } else {
+            holder.image.setImageResource(R.drawable.logo);
+            holder.image.setOnClickListener(null);
+        }
+
+        // Click → product details (calls listener)
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) listener.onItemClick(product);
+        });
+
+        // Add to cart (only in home)
+        if ("home".equals(mode)) {
             holder.addToCartBtn.setVisibility(View.VISIBLE);
             holder.addToCartBtn.setOnClickListener(v -> {
+                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                    Toast.makeText(context, "Please log in to add to cart", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
                 Map<String, Object> cartItem = new HashMap<>();
                 cartItem.put("name", product.getName());
                 cartItem.put("price", product.getPrice());
                 cartItem.put("imageResId", product.getImageResId());
                 cartItem.put("brand", product.getBrand());
+                cartItem.put("imageUrl", product.getImageUrl());
 
                 db.collection("users")
                         .document(userId)
@@ -99,13 +121,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             holder.addToCartBtn.setVisibility(View.GONE);
         }
 
-        // -----------------------------
-        // DELETE BUTTON (cart/notifications)
-        // -----------------------------
-        if (mode.equals("cart")) {
+        // Delete button handling for cart / notifications
+        if ("cart".equals(mode)) {
             holder.deleteBtn.setVisibility(View.VISIBLE);
             holder.deleteBtn.setImageResource(R.drawable.ic_delete);
-        } else if (mode.equals("notifications")) {
+        } else if ("notifications".equals(mode)) {
             holder.deleteBtn.setVisibility(View.VISIBLE);
             holder.deleteBtn.setImageResource(R.drawable.ic_clear);
         } else {
@@ -113,48 +133,42 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
 
         holder.deleteBtn.setOnClickListener(v -> {
-            if (deleteListener != null) {
-                deleteListener.onDeleteClick(holder.getAdapterPosition());
-            }
+            if (deleteListener != null) deleteListener.onDeleteClick(holder.getAdapterPosition());
 
-            if (product.getFirestoreId() != null && mode.equals("cart")) {
+            if (product.getFirestoreId() != null && "cart".equals(mode)) {
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 db.collection("users")
                         .document(userId)
                         .collection("cart")
                         .document(product.getFirestoreId())
                         .delete()
-                        .addOnSuccessListener(unused ->
-                                Toast.makeText(context, "Removed from cart!", Toast.LENGTH_SHORT).show()
-                        );
+                        .addOnSuccessListener(unused -> {
+                            Toast.makeText(context, "Removed from cart!", Toast.LENGTH_SHORT).show();
+                        });
             }
         });
     }
 
     @Override
-    public int getItemCount() {
-        return productList.size();
-    }
+    public int getItemCount() { return productList.size(); }
 
     public void updateList(List<Product> newList) {
         this.productList = newList;
         notifyDataSetChanged();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
+    static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
-        TextView name, price, brand;   // ⭐ BRAND added
+        TextView name, price, brand;
         ImageButton deleteBtn;
         Button addToCartBtn;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             image = itemView.findViewById(R.id.productImage);
             name = itemView.findViewById(R.id.productName);
+            brand = itemView.findViewById(R.id.productBrand);
             price = itemView.findViewById(R.id.productPrice);
-            brand = itemView.findViewById(R.id.productBrand);   // ⭐ BRAND
             deleteBtn = itemView.findViewById(R.id.deleteBtn);
             addToCartBtn = itemView.findViewById(R.id.addToCartBtn);
         }
