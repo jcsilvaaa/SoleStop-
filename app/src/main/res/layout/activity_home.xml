@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/brand_white">
 
-    <!-- Top section: Logo and Motto -->
+    <!-- Top: logo & motto -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
             android:id="@+id/companyMotto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Company Motto Here"
+            android:text="Your soul won't stop here in SoleStop!"
             android:textColor="@color/brand_white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -42,12 +43,12 @@
             android:textSize="14sp"/>
     </LinearLayout>
 
-    <!-- Login, Register & Logout Buttons Section -->
+    <!-- Login/Register/Logout -->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:padding="12dp"
         android:gravity="center"
         android:weightSum="3">
 
@@ -79,14 +80,6 @@
             android:layout_marginEnd="8dp"/>
 
         <Button
-            android:id="@+id/orderHistoryBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Order History"
-            android:visibility="gone"
-            android:layout_marginTop="8dp"/>
-
-        <Button
             android:id="@+id/logoutHomeBtn"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -96,32 +89,46 @@
             android:textAllCaps="false"
             android:backgroundTint="@color/brand_red_dark"
             android:textColor="@android:color/white"
-            android:visibility="gone"/> <!-- initially hidden -->
+            android:visibility="gone"/>
     </LinearLayout>
 
-    <!-- SEARCH + FILTER SECTION -->
+    <!-- Search / Filter / Maps Row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="12dp">
 
-        <!-- SEARCH BAR -->
         <SearchView
             android:id="@+id/searchBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:queryHint="Search products..." />
 
-        <!-- BRAND FILTER DROPDOWN -->
-        <Spinner
-            android:id="@+id/spinnerBrand"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp">
+
+            <Spinner
+                android:id="@+id/spinnerBrand"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/mapsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find Stores"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/brand_red_dark"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- RecyclerView for Products -->
+    <!-- Products -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productRecyclerView"
         android:layout_width="match_parent"
