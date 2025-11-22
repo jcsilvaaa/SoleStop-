@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">860197646470</string>
-    <string name="google_api_key" translatable="false">AIzaSyA94XMkPng9x7ORbElolgx2yYGaF4riu5s</string>
-    <string name="google_app_id" translatable="false">1:860197646470:android:42fb9a53710371d8a0a107</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA94XMkPng9x7ORbElolgx2yYGaF4riu5s</string>
-    <string name="google_storage_bucket" translatable="false">solestopapp.firebasestorage.app</string>
-    <string name="project_id" translatable="false">solestopapp</string>
-</resources>
